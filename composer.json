@@ -1,0 +1,29 @@
+{
+    "name": "gtk/flash-message",
+    "description": "Flash Message for Laravel.",
+    "license": "MIT",
+    "keywords": ["laravel", "flash message"],
+    "authors": [
+        {
+            "name": "Giang Thai Cuong",
+            "email": "cuong@gtk.vn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master",
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GTK\\FlashMessage\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
