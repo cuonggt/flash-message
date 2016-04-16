@@ -42,7 +42,7 @@ class Flash
     }
 
     /**
-     * Flash an success message.
+     * Flash a success message.
      *
      * @param string $title
      * @param string $message
@@ -64,7 +64,7 @@ class Flash
     }
 
     /**
-     * Flash an warning message.
+     * Flash a warning message.
      *
      * @param string $title
      * @param string $message

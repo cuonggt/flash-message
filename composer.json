@@ -1,6 +1,6 @@
 {
     "name": "gtk/flash-message",
-    "description": "Flash Message for Laravel.",
+    "description": "Flash Messages for Laravel 5.",
     "license": "MIT",
     "keywords": ["laravel", "flash message"],
     "authors": [
