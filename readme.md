@@ -16,6 +16,14 @@ And then, include the service provider within `config/app.php`.
 ];
 ```
 
+And, for convenience, add a facade alias to this same file at the bottom:
+
+```php
+'aliases' => [
+    'FlashMessage' => 'Laracasts\FlashMessage\FlashMessage'
+];
+```
+
 ## Usage
 
 Within your controllers, before you perform a redirect...
@@ -23,23 +31,43 @@ Within your controllers, before you perform a redirect...
 ```php
 public function store()
 {
-    flash()->create('Title', 'Message!');
+    FlashMessage::create('Title', 'Message!');
 
-    return redirect()->to('/');
+    return home();
 }
 ```
 
 You may also do:
 
-- `flash()->info('Title', 'Message!')`
-- `flash()->success('Title', 'Message!')`
-- `flash()->error('Title', 'Message!')`
-- `flash()->warning('Title', 'Message!')`
-- `flash()->overlay('Modal Title', 'Modal Message!')`
+- `FlashMessage::info('Title', 'Message!')`
+- `FlashMessage::success('Title', 'Message!')`
+- `FlashMessage::error('Title', 'Message!')`
+- `FlashMessage::warning('Title', 'Message!')`
+- `FlashMessage::overlay('Modal Title', 'Modal Message!')`
 
 This will set a key in the session:
 
 - `flash_message` - The array contains title, message you're flashing and level (A string that represents the type of notification which is good for applying HTML class names)
+
+Alternatively, you may reference the `flash()` helper function, instead of the facade. Here's an example:
+
+```php
+/**
+ * Destroy the user's session (logout).
+ *
+ * @return Response
+ */
+public function destroy()
+{
+    Auth::logout();
+
+    flash()->success('Success', 'You have been logged out.');
+
+    return home();
+}
+```
+
+Or, for a general information flash, just do: `flash('Some title', 'Some message');`.
 
 ## License
 
