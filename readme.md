@@ -20,7 +20,7 @@ And, for convenience, add a facade alias to this same file at the bottom:
 
 ```php
 'aliases' => [
-    'FlashMessage' => 'Laracasts\FlashMessage\FlashMessage'
+    'FlashMessage' => Laracasts\FlashMessage\FlashMessage::class
 ];
 ```
 
