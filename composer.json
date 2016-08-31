@@ -1,6 +1,6 @@
 {
     "name": "gtk/flash-message",
-    "description": "Flash Messages for Laravel 5.",
+    "description": "Flash Message for Laravel 5.",
     "license": "MIT",
     "keywords": ["laravel", "flash message"],
     "authors": [
@@ -9,7 +9,7 @@
             "email": "cuong@gtk.vn"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.0"
