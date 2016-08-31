@@ -16,7 +16,7 @@ And then, include the service provider within `config/app.php`.
 
 ```php
 'providers' => [
-    GTK\FlashMessage\FlashMessageServiceProvider::class,
+    Gtk\FlashMessage\FlashMessageServiceProvider::class,
 ];
 ```
 
@@ -24,7 +24,7 @@ And, for convenience, add a facade alias to this same file at the bottom:
 
 ```php
 'aliases' => [
-    'FlashMessage' => GTK\FlashMessage\FlashMessage::class
+    'FlashMessage' => Gtk\FlashMessage\FlashMessage::class
 ];
 ```
 

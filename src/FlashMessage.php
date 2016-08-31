@@ -1,6 +1,6 @@
 <?php
 
-namespace GTK\FlashMessage;
+namespace Gtk\FlashMessage;
 
 use Illuminate\Support\Facades\Facade;
 

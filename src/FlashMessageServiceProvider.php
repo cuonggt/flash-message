@@ -1,6 +1,6 @@
 <?php
 
-namespace GTK\FlashMessage;
+namespace Gtk\FlashMessage;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,12 +24,12 @@ class FlashMessageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'GTK\FlashMessage\SessionStore',
-            'GTK\FlashMessage\LaravelSessionStore'
+            'Gtk\FlashMessage\SessionStore',
+            'Gtk\FlashMessage\LaravelSessionStore'
         );
 
         $this->app->singleton('flash', function () {
-            return $this->app->make('GTK\FlashMessage\Flash');
+            return $this->app->make('Gtk\FlashMessage\Flash');
         });
     }
 }

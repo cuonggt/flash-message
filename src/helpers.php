@@ -7,7 +7,7 @@ if (! function_exists('flash')) {
      *
      * @param string|null $title
      * @param string|null $message
-     * @return \GTK\FlashMessage\Flash
+     * @return \Gtk\FlashMessage\Flash
      */
     function flash($title = null, $message = null)
     {

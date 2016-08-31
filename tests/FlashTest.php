@@ -1,6 +1,6 @@
 <?php
 
-use GTK\FlashMessage\Flash;
+use Gtk\FlashMessage\Flash;
 use Mockery as m;
 
 class FlashTest extends PHPUnit_Framework_TestCase
@@ -11,7 +11,7 @@ class FlashTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->session = m::mock('GTK\FlashMessage\SessionStore');
+        $this->session = m::mock('Gtk\FlashMessage\SessionStore');
 
         $this->flash = new Flash($this->session);
     }
