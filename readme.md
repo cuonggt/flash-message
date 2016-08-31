@@ -1,4 +1,4 @@
-# Flash Messages for Laravel 5
+# Flash Message for Laravel 5
 
 [![Build Status](https://travis-ci.org/cuonggt/flash-message.svg?branch=master)](https://travis-ci.org/cuonggt/flash-message)
 [![Latest Stable Version](https://poser.pugx.org/gtk/flash-message/v/stable)](https://packagist.org/packages/gtk/flash-message)
