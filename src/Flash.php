@@ -21,6 +21,13 @@ class Flash
         $this->session = $session;
     }
 
+    /**
+     * Create a flash message.
+     *
+     * @param string $title
+     * @param string $message
+     * @param string $key
+     */
     public function create($title, $message, $level = 'info', $key = 'flash_message')
     {
         $this->session->flash($key, [
@@ -31,25 +38,27 @@ class Flash
     }
 
     /**
-     * Flash an info message.
-     *
-     * @param string $title
-     * @param string $message
-     */
-    public function info($title, $message)
-    {
-        $this->create($title, $message, 'info');
-    }
-
-    /**
      * Flash a success message.
      *
      * @param string $title
      * @param string $message
+     * @param string $key
      */
-    public function success($title, $message)
+    public function success($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'success');
+        $this->create($title, $message, 'success', $key);
+    }
+
+    /**
+     * Flash an info message.
+     *
+     * @param string $title
+     * @param string $message
+     * @param string $key
+     */
+    public function info($title, $message, $key = 'flash_message')
+    {
+        $this->create($title, $message, 'info', $key);
     }
 
     /**
@@ -57,10 +66,11 @@ class Flash
      *
      * @param string $title
      * @param string $message
+     * @param string $key
      */
-    public function error($title, $message)
+    public function error($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'error');
+        $this->create($title, $message, 'error', $key);
     }
 
     /**
@@ -68,10 +78,11 @@ class Flash
      *
      * @param string $title
      * @param string $message
+     * @param string $key
      */
-    public function warning($title, $message)
+    public function warning($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'warning');
+        $this->create($title, $message, 'warning', $key);
     }
 
     /**
@@ -80,9 +91,10 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $level
+     * @param string $key
      */
-    public function overlay($title, $message, $level = 'info')
+    public function overlay($title, $message, $level = 'info', $key = 'flash_message')
     {
-        $this->create($title, $message, $level, 'flash_message_overlay');
+        $this->create($title, $message, $level, $key.'_overlay');
     }
 }
