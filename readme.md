@@ -1,4 +1,4 @@
-# Flash Message for Laravel 5
+# FlashMessage for Laravel 5
 
 [![Build Status](https://travis-ci.org/cuonggt/flash-message.svg?branch=master)](https://travis-ci.org/cuonggt/flash-message)
 [![Latest Stable Version](https://poser.pugx.org/gtk/flash-message/v/stable)](https://packagist.org/packages/gtk/flash-message)
@@ -6,73 +6,107 @@
 [![Latest Unstable Version](https://poser.pugx.org/gtk/flash-message/v/unstable)](https://packagist.org/packages/gtk/flash-message)
 [![License](https://poser.pugx.org/gtk/flash-message/license)](https://packagist.org/packages/gtk/flash-message)
 
-## Installation
+## Documentation
 
-First, pull in the package through Composer.
+To get started with FlashMessage, add to your `composer.json` file as a dependency:
 
-Run `composer require gtk/flash-message`
+    composer require gtk/flash-message
+    
+### Configuration
 
-And then, include the service provider within `config/app.php`.
+After installing the FlashMessage library, register the `Gtk\FlashMessage\FlashMessageServiceProvider` in your `config/app.php` configuration file:
 
 ```php
 'providers' => [
+    // Other service providers...
+    
     Gtk\FlashMessage\FlashMessageServiceProvider::class,
 ];
 ```
 
-And, for convenience, add a facade alias to this same file at the bottom:
-
-```php
-'aliases' => [
-    'FlashMessage' => Gtk\FlashMessage\FlashMessage::class
-];
-```
-
-## Usage
+### Basic Usage
 
 Within your controllers, before you perform a redirect...
 
 ```php
-public function store()
+public function update(UpdateProfileRequest $request)
 {
-    FlashMessage::create('Title', 'Message!');
+    $request->user()->update($request->all());
 
-    return home();
+    flash()->success('Success!', 'Profile successfully updated.');
+
+    return redirect()->back();
 }
 ```
 
 You may also do:
 
-- `FlashMessage::info('Title', 'Message!')`
-- `FlashMessage::success('Title', 'Message!')`
-- `FlashMessage::error('Title', 'Message!')`
-- `FlashMessage::warning('Title', 'Message!')`
-- `FlashMessage::overlay('Modal Title', 'Modal Message!')`
+- `flash()->info('Info Title!', 'Info Message.')`
+- `flash()->error('Error Title!', 'Error Message.')`
+- `flash()->warning('Warning Title!', 'Warning Message.')`
+- `flash()->overlay('Modal Title!', 'Modal Message.')`
 
-This will set a key in the session:
+or even with custom key and custom level:
 
-- `flash_message` - The array contains title, message you're flashing and level (A string that represents the type of notification which is good for applying HTML class names)
+- `flash()->create('Custom Title!', 'Custom Message.', 'custom_level', 'custom_flash_message')`
 
-Alternatively, you may reference the `flash()` helper function, instead of the facade. Here's an example:
+Behind the scenes, this will set a key in the session. Default is `flash_message` (or whatever you pass to) whose value is an array contains title, message and level (A string that represents the type of notification which is good for applying HTML class names) you're flashing.
 
-```php
-/**
- * Destroy the user's session (logout).
- *
- * @return Response
- */
-public function destroy()
-{
-    Auth::logout();
+With this message flashed to the session, you may now display it in your view(s). Maybe something like:
 
-    flash()->success('Success', 'You have been logged out.');
-
-    return home();
-}
+```html
+@if (session()->has('flash_message'))
+    <div class="alert alert-{{ session('flash_message.level') }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ session('flash_message.title') }}</strong> {!! session('flash_message.message') !!}
+    </div>
+@endif
 ```
 
-Or, for a general information flash, just do: `flash('Some title', 'Some message');`.
+> Note that this package is optimized for use with Twitter Bootstrap.
+
+Because flash messages and overlays are so common, if you want, you may use (or modify) the views that are included with this package. Simply append to your layout view:
+
+```html
+@include('flash-message::default')
+```
+
+### Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Flash Message</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            @include('flash-message::default')
+        
+            <h1>Flash Message</h1>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        <script>
+            $('#flash-overlay-modal').modal();
+        </script>
+    </body>
+</html>
+```
+
+If you need to modify the flash message partials, you can run:
+
+```bash
+php artisan vendor:publish
+```
+
+The default package view file `default.blade.php` will now be located in the `app/views/packages/gtk/flash-message/` directory.
 
 ## License
 
-The Flash Message is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The FlashMessage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
