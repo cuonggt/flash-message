@@ -6,7 +6,7 @@
     "authors": [
         {
             "name": "Giang Thai Cuong",
-            "email": "cuong@gtk.vn"
+            "email": "thaicuong.giang@gmail.com"
         }
     ],
     "require": {
@@ -19,10 +19,15 @@
     },
     "autoload": {
         "psr-4": {
-            "Gtk\\FlashMessage\\": "src/"
+            "Gtk\\FlashMessage\\": "src/FlashMessage/"
         },
         "files": [
-            "src/helpers.php"
+            "src/FlashMessage/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
         ]
     },
     "minimum-stability": "dev",

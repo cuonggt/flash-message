@@ -12,7 +12,7 @@ class Flash
     private $session;
 
     /**
-     * Create a new flash notifier instance.
+     * Create a new flash instance.
      *
      * @param SessionStore $session
      */
@@ -27,6 +27,7 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     * @return $this
      */
     public function create($title, $message, $level = 'info', $key = 'flash_message')
     {
@@ -35,6 +36,8 @@ class Flash
             'message' => $message,
             'level' => $level
         ]);
+
+        return $this;
     }
 
     /**
@@ -43,10 +46,11 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     * @return $this
      */
     public function success($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'success', $key);
+        return $this->create($title, $message, 'success', $key);
     }
 
     /**
@@ -55,10 +59,11 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     * @return $this
      */
     public function info($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'info', $key);
+        return $this->create($title, $message, 'info', $key);
     }
 
     /**
@@ -67,10 +72,11 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     * @return $this
      */
     public function error($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'error', $key);
+        return $this->create($title, $message, 'error', $key);
     }
 
     /**
@@ -79,10 +85,11 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     * @return $this
      */
     public function warning($title, $message, $key = 'flash_message')
     {
-        $this->create($title, $message, 'warning', $key);
+        return $this->create($title, $message, 'warning', $key);
     }
 
     /**
@@ -92,9 +99,10 @@ class Flash
      * @param string $message
      * @param string $level
      * @param string $key
+     * @return $this
      */
     public function overlay($title, $message, $level = 'info', $key = 'flash_message')
     {
-        $this->create($title, $message, $level, $key.'_overlay');
+        return $this->create($title, $message, $level, $key.'_overlay');
     }
 }

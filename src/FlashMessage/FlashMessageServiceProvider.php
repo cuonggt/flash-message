@@ -13,7 +13,11 @@ class FlashMessageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadViewsFrom(__DIR__ . '/../views', 'flash-message');
+
+        $this->publishes([
+            __DIR__ . '/../views' => base_path('resources/views/vendor/flash-message')
+        ]);
     }
 
     /**

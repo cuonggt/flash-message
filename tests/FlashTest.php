@@ -1,90 +1,76 @@
 <?php
 
-use Gtk\FlashMessage\Flash;
-use Mockery as m;
-
-class FlashTest extends PHPUnit_Framework_TestCase
+class FlashTest extends TestCase
 {
-    protected $session;
-
-    protected $flash;
-
-    public function setUp()
+    /** @test */
+    public function it_displays_success_flash_messages()
     {
-        $this->session = m::mock('Gtk\FlashMessage\SessionStore');
+        $this->session->shouldReceive('flash')->with('flash_message', [
+            'title' => 'Success!',
+            'message' => 'User successfully created.',
+            'level' => 'success'
+        ]);
 
-        $this->flash = new Flash($this->session);
+        $this->flash->success('Success!', 'User successfully created.');
     }
 
     /** @test */
     public function it_displays_info_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Info',
-            'message' => 'Info Message',
+            'title' => 'Info!',
+            'message' => 'Info Message.',
             'level' => 'info'
         ]);
 
-        $this->flash->info('Info', 'Info Message');
-    }
-
-    /** @test */
-    public function it_displays_success_flash_messages()
-    {
-        $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Success',
-            'message' => 'Success Message',
-            'level' => 'success'
-        ]);
-
-        $this->flash->success('Success', 'Success Message');
+        $this->flash->info('Info!', 'Info Message.');
     }
 
     /** @test */
     public function it_displays_error_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Error',
-            'message' => 'Error Message',
+            'title' => 'Error!',
+            'message' => 'Error Message.',
             'level' => 'error'
         ]);
 
-        $this->flash->error('Error', 'Error Message');
+        $this->flash->error('Error!', 'Error Message.');
     }
 
     /** @test */
     public function it_displays_warning_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Warning',
-            'message' => 'Warning Message',
+            'title' => 'Warning!',
+            'message' => 'Warning Message.',
             'level' => 'warning'
         ]);
 
-        $this->flash->warning('Warning', 'Warning Message');
+        $this->flash->warning('Warning!', 'Warning Message.');
     }
 
     /** @test */
     public function it_displays_overlay_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message_overlay', [
-            'title' => 'Overlay',
-            'message' => 'Overlay Message',
+            'title' => 'Overlay!',
+            'message' => 'Overlay Message.',
             'level' => 'info'
         ]);
 
-        $this->flash->overlay('Overlay', 'Overlay Message');
+        $this->flash->overlay('Overlay!', 'Overlay Message.');
     }
 
     /** @test */
     public function it_displays_custom_flash_messages()
     {
-        $this->session->shouldReceive('flash')->with('flash_message_custom', [
-            'title' => 'Custom',
-            'message' => 'Custom Message',
+        $this->session->shouldReceive('flash')->with('custom_flash_message', [
+            'title' => 'Custom Title!',
+            'message' => 'Custom Message.',
             'level' => 'custom_level'
         ]);
 
-        $this->flash->create('Custom', 'Custom Message', 'custom_level', 'flash_message_custom');
+        $this->flash->create('Custom Title!', 'Custom Message.', 'custom_level', 'custom_flash_message');
     }
 }
