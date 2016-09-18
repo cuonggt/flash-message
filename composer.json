@@ -19,10 +19,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Gtk\\FlashMessage\\": "src/FlashMessage/"
+            "Gtk\\FlashMessage\\": "src/"
         },
         "files": [
-            "src/FlashMessage/helpers.php"
+            "src/helpers.php"
         ]
     },
     "autoload-dev": {
