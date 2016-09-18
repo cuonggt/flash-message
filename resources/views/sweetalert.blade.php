@@ -2,7 +2,7 @@
 <script type="text/javascript">
     swal({
         title: "{{ session('flash_message.title') }}",
-        text: "{{ session('flash_message.message') }}",
+        text: "{!! session('flash_message.message') !!}",
         type: "{{ session('flash_message.level') }}",
         timer: 1700,
         showConfirmButton: false
@@ -13,7 +13,7 @@
 <script type="text/javascript">
     swal({
         title: "{{ session('flash_message_overlay.title') }}",
-        text: "{{ session('flash_message_overlay.message') }}",
+        text: "{!! session('flash_message_overlay.message') !!}",
         type: "{{ session('flash_message_overlay.level') }}",
         confimButtonText: "Okay"
     });
