@@ -2,7 +2,7 @@
     "name": "gtk/flash-message",
     "description": "Flash Message for Laravel 5.",
     "license": "MIT",
-    "keywords": ["laravel", "flash message"],
+    "keywords": ["flash message", "notification", "sweetalert", "notifyjs", "laravel"],
     "authors": [
         {
             "name": "Giang Thai Cuong",
