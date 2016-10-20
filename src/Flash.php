@@ -27,14 +27,15 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     *
      * @return $this
      */
     public function create($title, $message, $level = 'info', $key = 'flash_message')
     {
         $this->session->flash($key, [
-            'title' => $title,
+            'title'   => $title,
             'message' => $message,
-            'level' => $level
+            'level'   => $level,
         ]);
 
         return $this;
@@ -46,6 +47,7 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     *
      * @return $this
      */
     public function success($title, $message, $key = 'flash_message')
@@ -59,6 +61,7 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     *
      * @return $this
      */
     public function info($title, $message, $key = 'flash_message')
@@ -72,6 +75,7 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     *
      * @return $this
      */
     public function error($title, $message, $key = 'flash_message')
@@ -85,6 +89,7 @@ class Flash
      * @param string $title
      * @param string $message
      * @param string $key
+     *
      * @return $this
      */
     public function warning($title, $message, $key = 'flash_message')
@@ -99,6 +104,7 @@ class Flash
      * @param string $message
      * @param string $level
      * @param string $key
+     *
      * @return $this
      */
     public function overlay($title, $message, $level = 'info', $key = 'flash_message')
