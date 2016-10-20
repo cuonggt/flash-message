@@ -6,9 +6,9 @@ class FlashTest extends TestCase
     public function it_displays_success_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Success!',
+            'title'   => 'Success!',
             'message' => 'User successfully created.',
-            'level' => 'success'
+            'level'   => 'success',
         ]);
 
         $this->flash->success('Success!', 'User successfully created.');
@@ -18,9 +18,9 @@ class FlashTest extends TestCase
     public function it_displays_info_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Info!',
+            'title'   => 'Info!',
             'message' => 'Info Message.',
-            'level' => 'info'
+            'level'   => 'info',
         ]);
 
         $this->flash->info('Info!', 'Info Message.');
@@ -30,9 +30,9 @@ class FlashTest extends TestCase
     public function it_displays_error_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Error!',
+            'title'   => 'Error!',
             'message' => 'Error Message.',
-            'level' => 'error'
+            'level'   => 'error',
         ]);
 
         $this->flash->error('Error!', 'Error Message.');
@@ -42,9 +42,9 @@ class FlashTest extends TestCase
     public function it_displays_warning_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
-            'title' => 'Warning!',
+            'title'   => 'Warning!',
             'message' => 'Warning Message.',
-            'level' => 'warning'
+            'level'   => 'warning',
         ]);
 
         $this->flash->warning('Warning!', 'Warning Message.');
@@ -54,9 +54,9 @@ class FlashTest extends TestCase
     public function it_displays_overlay_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message_overlay', [
-            'title' => 'Overlay!',
+            'title'   => 'Overlay!',
             'message' => 'Overlay Message.',
-            'level' => 'info'
+            'level'   => 'info',
         ]);
 
         $this->flash->overlay('Overlay!', 'Overlay Message.');
@@ -66,9 +66,9 @@ class FlashTest extends TestCase
     public function it_displays_custom_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('custom_flash_message', [
-            'title' => 'Custom Title!',
+            'title'   => 'Custom Title!',
             'message' => 'Custom Message.',
-            'level' => 'custom_level'
+            'level'   => 'custom_level',
         ]);
 
         $this->flash->create('Custom Title!', 'Custom Message.', 'custom_level', 'custom_flash_message');
