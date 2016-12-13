@@ -1,6 +1,6 @@
 # FlashMessage for Laravel 5
 
-[![Build Status](https://travis-ci.org/cuonggt/flash-message.svg?branch=master)](https://travis-ci.org/cuonggt/flash-message)
+[![Build Status](https://travis-ci.org/gtkvn/flash-message.svg?branch=master)](https://travis-ci.org/gtkvn/flash-message)
 [![Latest Stable Version](https://poser.pugx.org/gtk/flash-message/v/stable)](https://packagist.org/packages/gtk/flash-message)
 [![Total Downloads](https://poser.pugx.org/gtk/flash-message/downloads)](https://packagist.org/packages/gtk/flash-message)
 [![Latest Unstable Version](https://poser.pugx.org/gtk/flash-message/v/unstable)](https://packagist.org/packages/gtk/flash-message)
