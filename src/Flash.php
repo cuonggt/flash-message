@@ -81,7 +81,7 @@ class Flash
      */
     public function error($title, $message, $key = 'flash_message')
     {
-        return $this->create($title, $message, 'warning', $key);
+        return $this->create($title, $message, 'danger', $key);
     }
 
     /**
