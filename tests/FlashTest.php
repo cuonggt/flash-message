@@ -83,6 +83,6 @@ class FlashTest extends TestCase
             'level'   => 'success',
         ]);
 
-        $this->flash->success('group.translatable_title', 'group.translatable_message');
+        $this->flash->success('flash.translatable_title', 'flash.translatable_message');
     }
 }
