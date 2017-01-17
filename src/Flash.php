@@ -16,9 +16,10 @@ class Flash
      *
      * @param SessionStore $session
      */
-    public function __construct(SessionStore $session)
+    public function __construct(SessionStore $session, \Illuminate\Translation\Translator $translator)
     {
         $this->session = $session;
+        $this->translator = $translator;
     }
 
     /**
@@ -33,8 +34,8 @@ class Flash
     public function create($title, $message, $level = 'info', $key = 'flash_message')
     {
         $this->session->flash($key, [
-            'title'   => $title,
-            'message' => $message,
+            'title'   => $this->translator->get($title),
+            'message' => $this->translator->get($message),
             'level'   => $level,
         ]);
 

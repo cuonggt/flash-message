@@ -73,4 +73,16 @@ class FlashTest extends TestCase
 
         $this->flash->create('Custom Title!', 'Custom Message.', 'custom_level', 'custom_flash_message');
     }
+
+    /** @test */
+    public function it_displays_translated_flash_messages()
+    {
+        $this->session->shouldReceive('flash')->with('flash_message', [
+            'title'   => 'Translated title.',
+            'message' => 'Translated message.',
+            'level'   => 'success',
+        ]);
+
+        $this->flash->success('group.translatable_title', 'group.translatable_message');
+    }
 }
