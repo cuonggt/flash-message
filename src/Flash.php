@@ -84,6 +84,20 @@ class Flash
     }
 
     /**
+     * Flash an danger message.
+     *
+     * @param string $title
+     * @param string $message
+     * @param string $key
+     *
+     * @return $this
+     */
+    public function danger($title, $message, $key = 'flash_message')
+    {
+        return $this->create($title, $message, 'danger', $key);
+    }
+
+    /**
      * Flash a warning message.
      *
      * @param string $title

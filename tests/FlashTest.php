@@ -39,6 +39,18 @@ class FlashTest extends TestCase
     }
 
     /** @test */
+    public function it_displays_danger_flash_messages()
+    {
+        $this->session->shouldReceive('flash')->with('flash_message', [
+            'title'   => 'Danger!',
+            'message' => 'Danger Message.',
+            'level'   => 'danger',
+        ]);
+
+        $this->flash->danger('Danger!', 'Danger Message.');
+    }
+
+    /** @test */
     public function it_displays_warning_flash_messages()
     {
         $this->session->shouldReceive('flash')->with('flash_message', [
