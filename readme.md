@@ -109,4 +109,4 @@ The default package view file `default.blade.php` will now be located in the `ap
 
 ## License
 
-The FlashMessage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+FlashMessage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
