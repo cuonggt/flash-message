@@ -30,6 +30,13 @@
             "tests/TestCase.php"
         ]
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gtk\\FlashMessage\\FlashMessageServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
