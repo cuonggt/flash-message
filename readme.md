@@ -1,4 +1,4 @@
-# FlashMessage for Laravel 5
+# Flash Message for Laravel 5
 
 [![Build Status](https://travis-ci.org/gtkvn/flash-message.svg?branch=master)](https://travis-ci.org/gtkvn/flash-message)
 [![Latest Stable Version](https://poser.pugx.org/gtk/flash-message/v/stable)](https://packagist.org/packages/gtk/flash-message)
@@ -6,44 +6,54 @@
 [![Latest Unstable Version](https://poser.pugx.org/gtk/flash-message/v/unstable)](https://packagist.org/packages/gtk/flash-message)
 [![License](https://poser.pugx.org/gtk/flash-message/license)](https://packagist.org/packages/gtk/flash-message)
 
-## Documentation
+## Introduction
 
-To get started with FlashMessage, add to your `composer.json` file as a dependency:
+Flash Message provides an expressive, easy-to-use flash notification in a Laravel 5 project. [SweetAlert](https://sweetalert.js.org) is supported out of the box.
+
+## Installation
+
+To get started, you should add the `gtk/flash-message` Composer dependency to your project:
 
     composer require gtk/flash-message
-    
-### Configuration
 
-After installing the FlashMessage library, register the `Gtk\FlashMessage\FlashMessageServiceProvider` in your `config/app.php` configuration file:
+Once Flash Message is installed, you should register the `Gtk\FlashMessage\FlashMessageServiceProvider` service provider. Typically, this will be done automatically via Laravel's automatic service provider registration.
 
-```php
-'providers' => [
-    // Other service providers...
-    
-    Gtk\FlashMessage\FlashMessageServiceProvider::class,
-];
-```
-
-### Basic Usage
+## Getting Started
 
 Within your controllers, before you perform a redirect...
 
 ```php
-public function update(UpdateProfileRequest $request)
+public function store()
 {
-    $request->user()->update($request->all());
+    User::forceCreate([
+        'name' => request('name'),
+        'email' => request('email'),
+    ]);
 
-    flash()->success('Success!', 'Profile successfully updated.');
+    flash()->success('Laradmin', 'User successfully created.');
 
-    return redirect()->back();
+    return redirect('/users');
 }
 ```
+
+Since SweetAlert is supported out of the box, you can append to the layout view:
+
+```html
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@include('flash-message::sweetalert')
+```
+
+The result will be like:
+
+## Advanced Usage
 
 You may also do:
 
 - `flash()->info('Info Title!', 'Info Message.')`
 - `flash()->error('Error Title!', 'Error Message.')`
 - `flash()->warning('Warning Title!', 'Warning Message.')`
+- `flash()->danger('Danger Title!', 'Danger Message.')`
 - `flash()->overlay('Modal Title!', 'Modal Message.')`
 
 or even with custom key and custom level:
@@ -86,10 +96,10 @@ Because flash messages and overlays are so common, if you want, you may use (or 
     <body>
         <div class="container">
             @include('flash-message::default')
-        
+
             <h1>Flash Message</h1>
         </div>
-        
+
         <script src="https://code.jquery.com/jquery-3.1.0.min.js">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
         <script>
@@ -109,4 +119,4 @@ The default package view file `default.blade.php` will now be located in the `ap
 
 ## License
 
-FlashMessage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Flash Message is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

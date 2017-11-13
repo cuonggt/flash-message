@@ -5,7 +5,7 @@
         text: "{!! session('flash_message.message') !!}",
         icon: "{{ session('flash_message.level') }}",
         timer: 1700,
-        showConfirmButton: false
+        buttons: false
     });
 </script>
 @endif
