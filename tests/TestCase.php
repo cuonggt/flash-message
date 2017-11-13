@@ -1,7 +1,7 @@
 <?php
 
-use Gtk\FlashMessage\Flash;
 use Mockery as m;
+use Gtk\FlashMessage\Flash;
 
 abstract class TestCase extends PHPUnit_Framework_TestCase
 {
