@@ -46,6 +46,8 @@ Since SweetAlert is supported out of the box, you can append to the layout view:
 
 The result will be like:
 
+<p align="center"><img src="https://github.com/gtkvn/flash-message/raw/master/example.png"></p>
+
 ## Advanced Usage
 
 You may also do:
